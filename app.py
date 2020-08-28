@@ -15,6 +15,7 @@ from logging import Formatter, FileHandler
 from flask_wtf import Form
 from forms import *
 import sys
+from werkzeug.datastructures import MultiDict
 
 #----------------------------------------------------------------------------#
 # App Config.
@@ -483,6 +484,8 @@ def edit_artist(artist_id):
   artist['seeking_description'] = artists[0].seeking_description
   artist['image_link'] =  artists[0].image_link
 
+  form = ArtistForm(MultiDict(artist))
+
   return render_template('forms/edit_artist.html', form=form, artist=artist)
 
 @app.route('/artists/<int:artist_id>/edit', methods=['POST'])
@@ -541,6 +544,8 @@ def edit_venue(venue_id):
   venue['seeking_talent'] = venues[0].seeking_talent
   venue['seeking_description'] = venues[0].seeking_description
   venue['image_link'] =  venues[0].image_link
+
+  form = VenueForm(MultiDict(venue))
 
   return render_template('forms/edit_venue.html', form=form, venue=venue)
 
@@ -630,23 +635,22 @@ def shows():
   # TODO: replace with real venues data.
   #       num_shows should be aggregated based on number of upcoming shows per venue.
 
-  shows = (Show
+  shows = (db.session
       .query(Venue.id, Venue.name, Artist.id, Artist.name, Artist.image_link, Show.start_time)
       .join(Venue, Show.venue_id == Venue.id)
       .join(Artist, Show.artist_id == Artist.id)
-      .filter()
       .all())
 
   data = []
   
   for show in shows:
     temp = {}
-    temp['venue_id'] = show['Venue.id']
-    temp['venue_name'] = show['Venue.name']
-    temp['artist_id'] = show['Artist.id'] 
-    temp['artist_name'] = show['Artist.name']
-    temp['artist_image_link'] = show['Artist.image_link']
-    temp['start_time'] = show['start_time']
+    temp['venue_id'] = show[0]
+    temp['venue_name'] = show[1]
+    temp['artist_id'] = show[2] 
+    temp['artist_name'] = show[3]
+    temp['artist_image_link'] = show[4]
+    temp['start_time'] = str(show[5])
 
     data.append(temp)
 
