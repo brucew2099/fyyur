@@ -4,12 +4,22 @@
 <ul class="items">
 	{% for artist in artists %}
 	<li>
-		<a href="/artists/{{ artist.id }}">
-			<i class="fas fa-users"></i>
-			<div class="item">
-				<h5>{{ artist.name }}</h5>
-			</div>
-		</a>
+		<div class="ext-left">
+			<a href="/artists/{{ artist.id }}">
+				<i class="fas fa-users"></i>
+				<div class="item">
+					<h5>{{ artist.name }}</h5>
+				</div>
+			</a>
+		</div>
+		<div class="ext-right">
+			<a href="/artists/{{ artist.id }}/edit">
+				<i class="fas fa-edit"></i>
+			</a>
+			<a href="/artists/{{ artist.id }}">
+				<i class="fas fa-trash"></i>
+			</a>
+		</div>
 	</li>
 	{% endfor %}
 </ul>

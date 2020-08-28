@@ -96,11 +96,26 @@ p.lead {
     margin-right: 10px;
 }
 
+.ext-left {
+  float: left;
+  width: 30%;
+}
+
+.heading2:not(:first-of-type) {
+  padding-top: 25px;
+  clear: both;
+}
+
 ul.items {
   list-style: none;
   padding: 0;
   margin: 0;
 }
+
+ul.items > li {
+  clear: both;
+}
+
 ul.items > li > a {
   margin-bottom: 15px;
   display: flex;
