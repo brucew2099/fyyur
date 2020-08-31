@@ -109,7 +109,7 @@ p.lead {
 ul.items {
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 20px 0 0 0;
 }
 
 ul.items > li {
@@ -137,8 +137,9 @@ ul.items > li:hover h5 {
   flex: 1;
 }
 .item h5 {
-  margin-top: 0;
-  margin-bottom: 5px;
+  margin-top: -20px;
+  margin-bottom: 30px;
+  margin-left: 35px;
 }
 img {
   max-width: 100%;
