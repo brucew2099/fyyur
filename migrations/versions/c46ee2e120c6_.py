@@ -52,8 +52,8 @@ def upgrade():
     sa.Column('start_time', sa.DateTime(), nullable=True),
     sa.Column('venue_id', sa.Integer(), nullable=False),
     sa.Column('artist_id', sa.Integer(), nullable=False),
-    sa.ForeignKeyConstraint(['artist_id'], ['Artist.id'], ),
-    sa.ForeignKeyConstraint(['venue_id'], ['Venue.id'], ),
+    sa.ForeignKeyConstraint(['artist_id'], ['Artist.id'], onupdate="CASCADE", ondelete="CASCADE"),
+    sa.ForeignKeyConstraint(['venue_id'], ['Venue.id'], onupdate="CASCADE", ondelete="CASCADE"),
     sa.PrimaryKeyConstraint('id')
     )
     # ### end Alembic commands ###

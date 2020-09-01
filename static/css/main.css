@@ -86,36 +86,32 @@ p.lead {
     background-image: linear-gradient(#dde2e7,#dde2e7);
     color: #444;
 }
-
 #content h3 {
   margin-top: 15px;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
-
 #content h3 button {
     margin-right: 10px;
 }
-
 .ext-left {
   float: left;
   width: 30%;
 }
-
+.ext-right {
+  margin-top: 0px;
+}
 .heading2:not(:first-of-type) {
   padding-top: 25px;
   clear: both;
 }
-
 ul.items {
   list-style: none;
   padding: 0;
   margin: 20px 0 0 0;
 }
-
 ul.items > li {
   clear: both;
 }
-
 ul.items > li > a {
   margin-bottom: 15px;
   display: flex;
@@ -135,6 +131,11 @@ ul.items > li:hover h5 {
 .item {
   padding: 5px 5px 5px;
   flex: 1;
+}
+.item .searches {
+  margin-top: 0px;
+  margin-bottom: 30px;
+  margin-left: 35px;
 }
 .item h5 {
   margin-top: -20px;
@@ -198,8 +199,9 @@ h2.monospace {
   opacity: 0.7;
 }
 .shows .tile-show {
-  height: 350px;
+  height: 370px;
 }
+
 .tile {
   text-align: center;
   padding: 15px 25px;
